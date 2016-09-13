@@ -84,6 +84,26 @@
       blinking: "#nonieBlink",
       sad: "#nonieMad",
       happy: "#nonieHappy"
+    },
+    {
+      blinking: "#diaBlink",
+      sad: "#diaSad",
+      happy: "#diaHappy" 
+    },
+    {
+      blinking: "#chuckBlink",
+      sad: "#chuckMad",
+      happy: "#chuckHappy"
+    },
+    {
+      blinking: "#katieBlink",
+      sad: "#katieSad",
+      happy: "#katieHappy"
+    },
+    {
+      blinking: "#jasonBlink",
+      sad: "#jasonSad",
+      happy: "#jasonHappy"
     }
     ];
 
@@ -122,6 +142,26 @@
 
                     }
 
+                    $( myVideo[index].happy ).on('ended', function(event){
+                        $this = $(this);
+                        if( this.currentTime > ( this.duration - 1 ) ) {
+                         $this.fadeOut(200);
+                        }
+                        $(myVideo[index].blinking).play();
+
+                    });
+
+                    $( myVideo[index].sad ).on('ended', function(event){
+                        $this = $(this);
+                        if( this.currentTime > ( this.duration - 1 ) ) {
+                         $this.fadeOut(200);
+                        }
+                        $(myVideo[index].blinking).play();
+
+                    });
+                  
+
+
                     index++;
 
 
@@ -129,8 +169,6 @@
 //video needs to be playing and then must end/pause
 //none of the videos are playing/autoplaying now - so much tell them to play
 //then they have to end in order to continue the loop
-
-
 
 
 
