@@ -75,6 +75,19 @@
     $("video").hide();
 
     $("#lucasBlink").show();   
+    var myVideo=[{
+      blinking: "#lucasBlink",
+      sad: "#lucasSad",
+      happy: "#lucasHappy"
+    }, 
+    {
+      blinking: "#nonieBlink",
+      sad: "#nonieMad",
+      happy: "#nonieHappy"
+    }
+    ];
+
+    var index = 0; 
 
     var swipeState = 0;
     var dir;
@@ -97,142 +110,154 @@
                     if(gesture.direction[0] > 0 && gesture.state ==='stop'){
                         swipeDirection = "right";
                         dir = "right";
-                        $("#lucasBlink").hide();
-                        $("#lucasHappy").show();
+                        $(myVideo[index].blinking).hide();
+                        $(myVideo[index].happy).show();
                         console.log(swipeDirection);
                     } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
                         swipeDirection = "left";
                         dir = "left";
-                         $("#lucasBlink").hide();
-                         $("#lucasSad").show();
+                         $(myVideo[index].blinking).hide();
+                         $(myVideo[index].sad).show();
                         console.log(swipeDirection);
 
                     }
 
-                        // LUCAS TO NONIE
+                    index++;
 
-                        $("#lucasHappy").bind("ended", function() {
-                          $("#nonieBlink").show()
-                        });
 
-                        $("#lucasSad").bind("ended", function() {
-                          $("#nonieBlink").show()
-                        });
 
-                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
-                        swipeDirection = "right";
-                        dir = "right";
-                        $("#nonieBlink").hide();
-                          $("#nonieHappy").show();
-                        console.log(swipeDirection);
-                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
-                        swipeDirection = "left";
-                        dir = "left";
-                         $("#nonieBlink").hide();
-                          $("#nonieSad").show();
-                        console.log(swipeDirection);
+//video needs to be playing and then must end/pause
+//none of the videos are playing/autoplaying now - so much tell them to play
+//then they have to end in order to continue the loop
 
-                    }
 
-                        // NONIE TO CLAUDIA
 
-                        $("#nonieMad").bind("ended", function() {
-                          $("#diaBlink").show()
-                        });
 
-                        $("#nonieHappy").bind("ended", function() {
-                          $("#diaBlink").show()
-                        });
+
+                    //     // LUCAS TO NONIE
+
+                    //     $("#lucasHappy").bind("ended", function() {
+                    //       $("#nonieBlink").show()
+                    //     });
+
+                    //     $("#lucasSad").bind("ended", function() {
+                    //       $("#nonieBlink").show()
+                    //     });
+
+                    // if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                    //     swipeDirection = "right";
+                    //     dir = "right";
+                    //     $("#nonieBlink").hide();
+                    //       $("#nonieHappy").show();
+                    //     console.log(swipeDirection);
+                    // } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                    //     swipeDirection = "left";
+                    //     dir = "left";
+                    //      $("#nonieBlink").hide();
+                    //       $("#nonieSad").show();
+                    //     console.log(swipeDirection);
+
+                    // }
+
+                    //     // NONIE TO CLAUDIA
+
+                    //     $("#nonieMad").bind("ended", function() {
+                    //       $("#diaBlink").show()
+                    //     });
+
+                    //     $("#nonieHappy").bind("ended", function() {
+                    //       $("#diaBlink").show()
+                    //     });
                         
-                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
-                        swipeDirection = "right";
-                        dir = "right";
-                        $("#diaBlink").hide();
-                          $("#diaHappy").show();
-                        console.log(swipeDirection);
-                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
-                        swipeDirection = "left";
-                        dir = "left";
-                         $("#diaBlink").hide();
-                          $("#diaSad").show();
-                        console.log(swipeDirection);
+                    // if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                    //     swipeDirection = "right";
+                    //     dir = "right";
+                    //     $("#diaBlink").hide();
+                    //       $("#diaHappy").show();
+                    //     console.log(swipeDirection);
+                    // } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                    //     swipeDirection = "left";
+                    //     dir = "left";
+                    //      $("#diaBlink").hide();
+                    //       $("#diaSad").show();
+                    //     console.log(swipeDirection);
 
-                    }
+                    // }
 
-                        // CLAUDIA TO CHUCK
+                    //     // CLAUDIA TO CHUCK
 
-                        $("#diaSad").bind("ended", function() {
-                          $("#chuckBlink").show()
-                        });
+                    //     $("#diaSad").bind("ended", function() {
+                    //       $("#chuckBlink").show()
+                    //     });
 
-                        $("#diaHappy").bind("ended", function() {
-                          $("#chuckBlink").show()
-                        });
+                    //     $("#diaHappy").bind("ended", function() {
+                    //       $("#chuckBlink").show()
+                    //     });
 
-                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
-                        swipeDirection = "right";
-                        dir = "right";
-                        $("#chuckBlink").hide();
-                          $("#chuckHappy").show();
-                        console.log(swipeDirection);
-                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
-                        swipeDirection = "left";
-                        dir = "left";
-                         $("#chuckBlink").hide();
-                          $("#chuckSad").show();
-                        console.log(swipeDirection);
+                    // if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                    //     swipeDirection = "right";
+                    //     dir = "right";
+                    //     $("#chuckBlink").hide();
+                    //       $("#chuckHappy").show();
+                    //     console.log(swipeDirection);
+                    // } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                    //     swipeDirection = "left";
+                    //     dir = "left";
+                    //      $("#chuckBlink").hide();
+                    //       $("#chuckSad").show();
+                    //     console.log(swipeDirection);
 
-                    }
+                    // }
 
-                        // CHUCK TO KATIE
+                    //     // CHUCK TO KATIE
 
-                        $("#chuckMad").bind("ended", function() {
-                          $("#katieBlink").show()
-                        });
+                    //     $("#chuckMad").bind("ended", function() {
+                    //       $("#katieBlink").show()
+                    //     });
 
-                        $("#chuckHappy").bind("ended", function() {
-                          $("#katieBlink").show()
-                        });
+                    //     $("#chuckHappy").bind("ended", function() {
+                    //       $("#katieBlink").show()
+                    //     });
 
-                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
-                        swipeDirection = "right";
-                        dir = "right";
-                        $("#katieBlink").hide();
-                          $("#katieHappy").show();
-                        console.log(swipeDirection);
-                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
-                        swipeDirection = "left";
-                        dir = "left";
-                         $("#katieBlink").hide();
-                          $("#katieSad").show();
-                        console.log(swipeDirection);
+                    // if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                    //     swipeDirection = "right";
+                    //     dir = "right";
+                    //     $("#katieBlink").hide();
+                    //       $("#katieHappy").show();
+                    //     console.log(swipeDirection);
+                    // } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                    //     swipeDirection = "left";
+                    //     dir = "left";
+                    //      $("#katieBlink").hide();
+                    //       $("#katieSad").show();
+                    //     console.log(swipeDirection);
 
-                    }
+                    // }
 
-                        //Katie to Jason
+                    //     //Katie to Jason
 
-                         $("#katieSad").bind("ended", function() {
-                          $("#jasonBlink").show()
-                        });
+                    //      $("#katieSad").bind("ended", function() {
+                    //       $("#jasonBlink").show()
+                    //     });
 
-                        $("#katieHappy").bind("ended", function() {
-                          $("#jasonBlink").show()
-                        });
+                    //     $("#katieHappy").bind("ended", function() {
+                    //       $("#jasonBlink").show()
+                    //     });
 
-                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
-                        swipeDirection = "right";
-                        dir = "right";
-                        $("#jasonBlink").hide();
-                          $("#jasonHappy").show();
-                        console.log(swipeDirection);
-                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
-                        swipeDirection = "left";
-                        dir = "left";
-                         $("#jasonBlink").hide();
-                          $("#jasonSad").show();
-                        console.log(swipeDirection);
+                    // if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                    //     swipeDirection = "right";
+                    //     dir = "right";
+                    //     $("#jasonBlink").hide();
+                    //       $("#jasonHappy").show();
+                    //     console.log(swipeDirection);
+                    // } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                    //     swipeDirection = "left";
+                    //     dir = "left";
+                    //      $("#jasonBlink").hide();
+                    //       $("#jasonSad").show();
+                    //     console.log(swipeDirection);
 
-                    }
+                    // }
 
                 } 
             }
@@ -253,39 +278,39 @@
   <!-- Lucas -->
 
      <div>
-        <video class="video" id="lucasBlink" width="1080" height="720" autoplay loop>
+        <video class="video" id="lucasBlink" width="1080" height="720" loop>
           <source src="assets/lucasBlink.mp4" type="video/mp4">
         </video>
       </div>
 
        <div>
 
-        <video class="video" id="lucasSad" width="1080" height="720" autoplay>
+        <video class="video" id="lucasSad" width="1080" height="720">
           <source src="assets/lucasSad.mp4" type="video/mp4">
         </video>
       </div>
 
        <div>
-        <video class="video" id="lucasHappy" width="1080" height="720" autoplay>
+        <video class="video" id="lucasHappy" width="1080" height="720">
           <source src="assets/lucasHappy.mp4" type="video/mp4">
         </video>
       </div>
 
      <!-- Nonie -->
       <div>
-        <video class="video" id="nonieBlink" width="1080" height="720" autoplay loop>
+        <video class="video" id="nonieBlink" width="1080" height="720" loop>
           <source src="assets/nonieBlink3.mp4" type="video/mp4">
         </video>
       </div>
       
       <div>
-        <video class="video" id="nonieHappy" width="1080" height="720" autoplay>
+        <video class="video" id="nonieHappy" width="1080" height="720">
           <source src="assets/NonieHappy.mp4" type="video/mp4">
         </video>
       </div>
 
       <div>
-        <video class="video" id="nonieMad" width="1080" height="720" autoplay>
+        <video class="video" id="nonieMad" width="1080" height="720">
           <source src="assets/NonieMad.mp4" type="video/mp4">
         </video>
       </div>
@@ -293,19 +318,19 @@
   <!-- Uncle Chuck -->
 
       <div>
-        <video class="video" id="chuckHappy" width="1080" height="720" autoplay>
+        <video class="video" id="chuckHappy" width="1080" height="720">
           <source src="assets/chuckHappy.mp4" type="video/mp4">
         </video>
       </div>
       
       <div>
-        <video class="video" id="chuckMad" width="1080" height="720" autoplay>
+        <video class="video" id="chuckMad" width="1080" height="720">
           <source src="assets/chuckMad.mp4" type="video/mp4">
         </video>
       </div>
 
        <div>
-        <video class="video" id="chuckBlink" width="1080" height="720" autoplay loop>
+        <video class="video" id="chuckBlink" width="1080" height="720" loop>
           <source src="assets/chuckBlink.mp4" type="video/mp4">
         </video>
       </div>
@@ -313,19 +338,19 @@
   <!-- Katie Woolf -->
 
       <div>
-        <video class="video" id="katieBlink" width="1080" height="720" autoplay loop>
+        <video class="video" id="katieBlink" width="1080" height="720" loop>
           <source src="assets/katieBlink.mp4" type="video/mp4">
         </video>
       </div>
       
       <div>
-        <video class="video" id="katieSad" width="1080" height="720" autoplay>
+        <video class="video" id="katieSad" width="1080" height="720">
           <source src="assets/katieSad.mp4" type="video/mp4">
         </video>
       </div>
 
       <div>
-        <video class="video" id="katieHappy" width="1080" height="720" autoplay>
+        <video class="video" id="katieHappy" width="1080" height="720">
           <source src="assets/katieHappy.mp4" type="video/mp4">
         </video>
       </div>
@@ -333,19 +358,19 @@
   <!-- Claudia -->
 
       <div>
-        <video class="video" id="diaBlink" width="1080" height="720" autoplay loop>
+        <video class="video" id="diaBlink" width="1080" height="720" loop>
           <source src="assets/diaBlink.mp4" type="video/mp4">
         </video>
       </div>
       
       <div>
-        <video class="video" id="diaSad" width="1080" height="720" autoplay>
+        <video class="video" id="diaSad" width="1080" height="720">
           <source src="assets/diaSad.mp4" type="video/mp4">
         </video>
       </div>
 
       <div>
-        <video class="video" id="diaHappy" width="1080" height="720" autoplay>
+        <video class="video" id="diaHappy" width="1080" height="720">
           <source src="assets/diaHappy.mp4" type="video/mp4">
         </video>
       </div>
