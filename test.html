@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>toggle demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<button>Toggle</button>
+
+  <!-- Lucas -->
+
+     <div id = "lucasBlink">
+        <video width="1080" height="720" autoplay loop>
+          <source src="assets/lucasBlink.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <div style="display: none" id = "lucasSad">
+        <video width="1080" height="720" autoplay>
+          <source src="assets/lucasSad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <div style="display: none" id = "lucasHappy">
+        <video width="1080" height="720" autoplay>
+          <source src="assets/lucasHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+ 
+<script>
+$( "button" ).click(function() {
+  $( "div" ).toggle();
+});
+
+$( "#lucasBlink" ).toggle( display );
+
+ if ( display === true && dir ==='left') {
+   $( "#lucasSad" ).show();
+ } else if ( display === true && dir === 'right' ) {
+   $( "#lucasHappy" ).show();
+ }
+
+</script>
+ 
+</body>
+</html>

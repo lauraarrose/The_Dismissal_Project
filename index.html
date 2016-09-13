@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .video{ 
+        position: absolute;
+        margin-right: auto;
+        margin-left:auto;
+        top:0px;
+       }
+
+        #lucasBlink{
+          index:1;
+        }
+        #lucasHappy{
+          index:2;
+        }
+        #lucasSad{
+          index:3;
+        }
+        #nonieBlink{
+          index:4;
+        }
+        #nonieHappy{
+          index:5;
+        }
+        #nonieMad{
+          index:6;
+        }
+        #diaBlink{
+          index:7;
+        }
+        #diaHappy{
+          index:8;
+        }
+        #diaSad{
+          index:9;
+        }
+        #chuckBlink{
+          index:10;
+        }
+        #chuckHappy{
+          index:11;
+        }
+        #chuckMad{
+          index:12;
+        }
+        #katieBlink{
+          index:13;
+        }
+        #katieHappy{
+          index:14;
+        }
+        #katieSad{
+          index:15;
+        }
+        #jasonBlink{
+          index:16;
+        }
+        #jasonHappy{
+          index:17;
+        }
+        #jasonSad{
+          index:18;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>The Dismissal Project</title>
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>  
+    <script src="leap-0.6.4.js"></script>
+
+    <script>$(document).ready(function() {
+    
+    $("video").hide();
+
+    $("#lucasBlink").show();   
+
+    var swipeState = 0;
+    var dir;
+    var controllerOptions = {enableGestures: true};
+
+      Leap.loop(controllerOptions, function(frame) {
+        // Display Gesture object data
+        if (frame.gestures.length > 0) {
+          for (var i = 0; i < frame.gestures.length; i++) {
+            var gesture = frame.gestures[i];
+            console.log(gesture);
+            if(gesture.type == "swipe") {
+              
+                //Classify swipe as either horizontal or vertical
+                var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
+                //Classify as right-left or up-down
+                if(isHorizontal){
+                  console.log(gesture);
+
+                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                        swipeDirection = "right";
+                        dir = "right";
+                        $("#lucasBlink").hide();
+                        $("#lucasHappy").show();
+                        console.log(swipeDirection);
+                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                        swipeDirection = "left";
+                        dir = "left";
+                         $("#lucasBlink").hide();
+                         $("#lucasSad").show();
+                        console.log(swipeDirection);
+
+                    }
+
+                        // LUCAS TO NONIE
+
+                        $("#lucasHappy").bind("ended", function() {
+                          $("#nonieBlink").show()
+                        });
+
+                        $("#lucasSad").bind("ended", function() {
+                          $("#nonieBlink").show()
+                        });
+
+                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                        swipeDirection = "right";
+                        dir = "right";
+                        $("#nonieBlink").hide();
+                          $("#nonieHappy").show();
+                        console.log(swipeDirection);
+                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                        swipeDirection = "left";
+                        dir = "left";
+                         $("#nonieBlink").hide();
+                          $("#nonieSad").show();
+                        console.log(swipeDirection);
+
+                    }
+
+                        // NONIE TO CLAUDIA
+
+                        $("#nonieMad").bind("ended", function() {
+                          $("#diaBlink").show()
+                        });
+
+                        $("#nonieHappy").bind("ended", function() {
+                          $("#diaBlink").show()
+                        });
+                        
+                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                        swipeDirection = "right";
+                        dir = "right";
+                        $("#diaBlink").hide();
+                          $("#diaHappy").show();
+                        console.log(swipeDirection);
+                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                        swipeDirection = "left";
+                        dir = "left";
+                         $("#diaBlink").hide();
+                          $("#diaSad").show();
+                        console.log(swipeDirection);
+
+                    }
+
+                        // CLAUDIA TO CHUCK
+
+                        $("#diaSad").bind("ended", function() {
+                          $("#chuckBlink").show()
+                        });
+
+                        $("#diaHappy").bind("ended", function() {
+                          $("#chuckBlink").show()
+                        });
+
+                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                        swipeDirection = "right";
+                        dir = "right";
+                        $("#chuckBlink").hide();
+                          $("#chuckHappy").show();
+                        console.log(swipeDirection);
+                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                        swipeDirection = "left";
+                        dir = "left";
+                         $("#chuckBlink").hide();
+                          $("#chuckSad").show();
+                        console.log(swipeDirection);
+
+                    }
+
+                        // CHUCK TO KATIE
+
+                        $("#chuckMad").bind("ended", function() {
+                          $("#katieBlink").show()
+                        });
+
+                        $("#chuckHappy").bind("ended", function() {
+                          $("#katieBlink").show()
+                        });
+
+                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                        swipeDirection = "right";
+                        dir = "right";
+                        $("#katieBlink").hide();
+                          $("#katieHappy").show();
+                        console.log(swipeDirection);
+                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                        swipeDirection = "left";
+                        dir = "left";
+                         $("#katieBlink").hide();
+                          $("#katieSad").show();
+                        console.log(swipeDirection);
+
+                    }
+
+                        //Katie to Jason
+
+                         $("#katieSad").bind("ended", function() {
+                          $("#jasonBlink").show()
+                        });
+
+                        $("#katieHappy").bind("ended", function() {
+                          $("#jasonBlink").show()
+                        });
+
+                    if(gesture.direction[0] > 0 && gesture.state ==='stop'){
+                        swipeDirection = "right";
+                        dir = "right";
+                        $("#jasonBlink").hide();
+                          $("#jasonHappy").show();
+                        console.log(swipeDirection);
+                    } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
+                        swipeDirection = "left";
+                        dir = "left";
+                         $("#jasonBlink").hide();
+                          $("#jasonSad").show();
+                        console.log(swipeDirection);
+
+                    }
+
+                } 
+            }
+        }
+      }
+
+    });
+
+    });
+
+    </script>
+
+  </head>
+    
+    <body>
+
+    
+  <!-- Lucas -->
+
+     <div>
+        <video class="video" id="lucasBlink" width="1080" height="720" autoplay loop>
+          <source src="assets/lucasBlink.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <div>
+
+        <video class="video" id="lucasSad" width="1080" height="720" autoplay>
+          <source src="assets/lucasSad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <div>
+        <video class="video" id="lucasHappy" width="1080" height="720" autoplay>
+          <source src="assets/lucasHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+
+     <!-- Nonie -->
+      <div>
+        <video class="video" id="nonieBlink" width="1080" height="720" autoplay loop>
+          <source src="assets/nonieBlink3.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <div>
+        <video class="video" id="nonieHappy" width="1080" height="720" autoplay>
+          <source src="assets/NonieHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div>
+        <video class="video" id="nonieMad" width="1080" height="720" autoplay>
+          <source src="assets/NonieMad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+  <!-- Uncle Chuck -->
+
+      <div>
+        <video class="video" id="chuckHappy" width="1080" height="720" autoplay>
+          <source src="assets/chuckHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <div>
+        <video class="video" id="chuckMad" width="1080" height="720" autoplay>
+          <source src="assets/chuckMad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <div>
+        <video class="video" id="chuckBlink" width="1080" height="720" autoplay loop>
+          <source src="assets/chuckBlink.mp4" type="video/mp4">
+        </video>
+      </div>
+
+  <!-- Katie Woolf -->
+
+      <div>
+        <video class="video" id="katieBlink" width="1080" height="720" autoplay loop>
+          <source src="assets/katieBlink.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <div>
+        <video class="video" id="katieSad" width="1080" height="720" autoplay>
+          <source src="assets/katieSad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div>
+        <video class="video" id="katieHappy" width="1080" height="720" autoplay>
+          <source src="assets/katieHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+
+  <!-- Claudia -->
+
+      <div>
+        <video class="video" id="diaBlink" width="1080" height="720" autoplay loop>
+          <source src="assets/diaBlink.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <div>
+        <video class="video" id="diaSad" width="1080" height="720" autoplay>
+          <source src="assets/diaSad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div>
+        <video class="video" id="diaHappy" width="1080" height="720" autoplay>
+          <source src="assets/diaHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+       <!--  
+      <div>
+      <video id="valerieBlink" width="1080" height="720" autoplay loop>
+        <source src="assets/valtest2.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div id="valerieSad">
+      <video width="1080" height="720" autoplay>
+        <source src="assets/Sequence_03.valhappy.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div id="valerieHappy">
+      <video width="1080" height="720" autoplay>
+        <source src="assets/valtest3.mp4" type="video/mp4">
+      </video>
+      </div> -->
+
+    </body>   
+
+</html>
