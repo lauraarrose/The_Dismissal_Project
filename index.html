@@ -73,8 +73,8 @@
     <script>$(document).ready(function() {
     
     $("video").hide();
-
-    $("#lucasBlink").show();   
+    
+    
     var myVideo=[{
       blinking: "#lucasBlink",
       sad: "#lucasSad",
@@ -106,9 +106,13 @@
       happy: "#jasonHappy"
     }
     ];
+    console.log(myVideo[0])
 
     var index = 0; 
-
+    
+    $(myVideo[index].blinking).show(); 
+    $(myVideo[index].blinking).get(index).play();
+    
     var swipeState = 0;
     var dir;
     var controllerOptions = {enableGestures: true};
@@ -130,41 +134,51 @@
                     if(gesture.direction[0] > 0 && gesture.state ==='stop'){
                         swipeDirection = "right";
                         dir = "right";
-                        $(myVideo[index].blinking).hide();
-                        $(myVideo[index].happy).show();
+                        $(myVideo[index].blinking).get(index).hide();
+                        $(myVideo[index].blinking).get(index).pause();
+                        $(myVideo[index].happy).get(index).show();
+                        $(myVideo[index].happy).get(index).play();
                         console.log(swipeDirection);
                     } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
                         swipeDirection = "left";
                         dir = "left";
-                         $(myVideo[index].blinking).hide();
-                         $(myVideo[index].sad).show();
+                        $(myVideo[index].blinking).get(index).hide();
+                        $(myVideo[index].blinking).get(index).pause();
+                        $(myVideo[index].sad).get(index).show();
+                        $(myVideo[index].sad).get(index).play();
                         console.log(swipeDirection);
 
                     }
+                      //$myVideo[index].happy.get(index).on('ended', function(
+                       // $(myVideo[index].blinking).get(index).play());
+                       // )}
 
-                    $( myVideo[index].happy ).on('ended', function(event){
-                        $this = $(this);
-                        if( this.currentTime > ( this.duration - 1 ) ) {
-                         $this.fadeOut(200);
-                        }
-                        $(myVideo[index].blinking).play();
+                    
 
-                    });
-
-                    $( myVideo[index].sad ).on('ended', function(event){
-                        $this = $(this);
-                        if( this.currentTime > ( this.duration - 1 ) ) {
-                         $this.fadeOut(200);
-                        }
-                        $(myVideo[index].blinking).play();
-
-                    });
-                  
+                    // if (
+                    //     $( myVideo[index].happy ).on('ended', function(nextVideo){
+                    //     $this = $(this);
+                    //       if( this.currentTime > ( this.duration - 1 ) ) {
+                    //         $this.fadeOut(200);
+                    //       }    
+                    //     })
+                    // ){
+                    //     $(myVideo[index].blinking).show();
+                    // } else if (
+                    //     $( myVideo[index].sad ).on('ended', function(event){
+                    //     $this = $(this);
+                    //       if( this.currentTime > ( this.duration - 1 ) ) {
+                    //         $this.fadeOut(200);
+                    //       }
+                    //     })
+                    // ){
+                    //     $(myVideo[index].blinking).show();
+                    // };
 
 
                     index++;
 
-
+//$(myVideo[index].blinking).get(index).play()
 
 //video needs to be playing and then must end/pause
 //none of the videos are playing/autoplaying now - so much tell them to play
