@@ -147,6 +147,15 @@
         #nicoleSad{
           index:39;
         }
+         #effyBlink{
+          index:40;
+        }
+        #effyHappy{
+          index:41;
+        }
+        #effySad{
+          index:42;
+        }
        /* #jeannineBlink{
           index:16;
         }
@@ -244,6 +253,11 @@ var myVideo;
       blinking: "#nicoleBlink",
       sad: "#nicoleSad",
       happy: "#nicoleHappy"
+    },
+    {
+      blinking: "#effyBlink",
+      sad: "#effySad",
+      happy: "#effyHappy"
     }
     //  {
     //   blinking: "#jeannineBlink",
@@ -641,7 +655,25 @@ var myVideo;
         <source src="assets/nicoleHappy.mp4" type="video/mp4">
       </video>
       </div>
-  
+   
+   <!-- effy -->
+      <div>
+      <video id="effyBlink" width="1080" height="720" loop>
+        <source src="assets/effyBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="effySad" width="1080" height="720">
+        <source src="assets/effySad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="effyHappy" width="1080" height="720">
+        <source src="assets/effyHappy.mp4" type="video/mp4">
+      </video>
+      </div>
   </body> 
 
 </html>
