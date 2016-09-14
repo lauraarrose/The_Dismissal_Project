@@ -2,6 +2,9 @@
 <html>
   <head>
     <style>
+      body{
+        background-color: black;
+      }
       .video{ 
         position: absolute;
         margin-right: auto;
@@ -72,15 +75,15 @@
         #zoeSad{
           index:18;  
         }
-        #jeannineBlink{
+       /* #jeannineBlink{
           index:16;
         }
         #jeannineHappy{
           index:17;
         }
         #jeannineSad{
-          index:18;  
-        }
+          index:18;  */
+       /* }*/
 
     </style>
     <meta charset="UTF-8">
@@ -88,12 +91,14 @@
     <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>  
     <script src="leap-0.6.4.js"></script>
 
-    <script>$(document).ready(function() {
+    <script>
+var myVideo;
+    $(document).ready(function() {
     
     $("video").hide();
     
     
-    var myVideo=[{
+   myVideo=[{
       blinking: "#lucasBlink",
       sad: "#lucasSad",
       happy: "#lucasHappy"
@@ -120,29 +125,40 @@
     },
     {
       blinking: "#jasonBlink",
-      sad: "#jasonSad",
+      sad: "#jasonMad",
       happy: "#jasonHappy"
     },
     {
       blinking: "#zoeBlink",
       sad: "#zoeSad",
       happy: "#zoeHappy"
-    },
-     {
-      blinking: "#jeannineBlink",
-      sad: "#jeannineSad",
-      happy: "#jeannineHappy"
     }
+    //  {
+    //   blinking: "#jeannineBlink",
+    //   sad: "#jeannineSad",
+    //   happy: "#jeannineHappy"
+    // }
     ];
 
     var index = 0; 
-    
-    $(myVideo[index].blinking).show(); 
-    $(myVideo[index].blinking).get(index).play();
+    var currentVideo= $(myVideo[index].blinking);
+    currentVideo.show(); 
+    currentVideo.get(0).play();
     
     var swipeState = 0;
     var dir;
     var controllerOptions = {enableGestures: true};
+    
+    function playNext(){
+      index++;
+      if(index > myVideo.length - 1) index = 0; 
+      currentVideo.get(0).pause();
+      currentVideo.hide();
+      currentVideo= $(myVideo[index].blinking)
+      currentVideo.show();
+      currentVideo.get(0).play();
+    }
+
 
 
       Leap.loop(controllerOptions, function(frame) {
@@ -150,7 +166,7 @@
         if (frame.gestures.length > 0) {
           for (var i = 0; i < frame.gestures.length; i++) {
             var gesture = frame.gestures[i];
-            console.log(gesture);
+            //console.log(gesture);
             if(gesture.type == "swipe") {
 
           
@@ -158,34 +174,37 @@
                 var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
                 //Classify as right-left or up-down
                 if(isHorizontal){
-                  console.log(gesture);
+                  //console.log(gesture);
                  
                     if(gesture.direction[0] > 0 && gesture.state ==='stop'){
                         swipeDirection = "right";
                         dir = "right";
-                        $(myVideo[index].blinking).get(index).pause();
+                        currentVideo.get(0).pause();
                          console.log(swipeDirection);
-                        $(myVideo[index].blinking).get(index).hide();
-                        $(myVideo[index].happy).get(index).show();
-                        $(myVideo[index].happy).get(index).play();
+                        currentVideo.hide();
+                        currentVideo= $(myVideo[index].happy);
+                        currentVideo.show();
+                        currentVideo.get(0).play();
+                        currentVideo.get(0).onended = playNext;  
+
                         console.log(swipeDirection);
+                    // index++;
 
                     } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
                         swipeDirection = "left";
                         dir = "left";
-
-                          console.log("I am AMAZING");
-
-                        $(myVideo[index].blinking).get(index).pause();
-                        $(myVideo[index].blinking).get(index).hide();
-                        $(myVideo[index].sad).get(index).show();
-                        $(myVideo[index].sad).get(index).play();
+                        currentVideo.get(0).pause();
+                        currentVideo.hide();
+                        currentVideo= $(myVideo[index].sad)
+                        currentVideo.show();
+                        currentVideo.get(0).play();
+                        currentVideo.get(0).onended = playNext; 
                         console.log(swipeDirection);
-
+                    // index++;
 
                     }
-                      //$myVideo[index].happy.get(index).on('ended', function(
-                       // $(myVideo[index].blinking).get(index).play());
+                      //$myVideo[index].happy.on('ended', function(
+                       // $(myVideo[index].blinking).play());
                        // )}
 
                     
@@ -209,9 +228,9 @@
                     // ){
                     //     $(myVideo[index].blinking).show();
                     // };
-                    index++;
+                   
 
-//$(myVideo[index].blinking).get(index).play()
+//$(myVideo[index].blinking).play()
 
 //video needs to be playing and then must end/pause
 //none of the videos are playing/autoplaying now - so much tell them to play
@@ -354,7 +373,7 @@
       </div>
 
  <!-- Jeannine -->
-        <div>
+      <!--   <div>
         <video class="video" id="jeannineBlink" width="1080" height="720" loop>
           <source src="assets/jeannineBlink.mp4" type="video/mp4">
         </video>
@@ -370,26 +389,25 @@
         <video class="video" id="jeannineHappy" width="1080" height="720">
           <source src="assets/jeannineHappy.mp4" type="video/mp4">
         </video>
-      </div>
+      </div> -->
        
-       <!-- 
       <div>
-      <video id="valerieBlink" width="1080" height="720" autoplay loop>
-        <source src="assets/valtest2.mp4" type="video/mp4">
+      <video id="jasonBlink" width="1080" height="720" loop>
+        <source src="assets/jasonBlink.mp4" type="video/mp4">
       </video>
       </div>
       
-      <div id="valerieSad">
-      <video width="1080" height="720" autoplay>
-        <source src="assets/Sequence_03.valhappy.mp4" type="video/mp4">
+      <div>
+      <video class="video" id="jasonMad" width="1080" height="720">
+        <source src="assets/jasonMad.mp4" type="video/mp4">
       </video>
       </div>
 
-      <div id="valerieHappy">
-      <video width="1080" height="720" autoplay>
-        <source src="assets/valtest3.mp4" type="video/mp4">
+      <div>
+      <video class="video" id="jasonHappy" width="1080" height="720">
+        <source src="assets/jasonHappy.mp4" type="video/mp4">
       </video>
-      </div> -->
+      </div>
 
     </body>   
 
