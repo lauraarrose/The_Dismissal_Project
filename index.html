@@ -102,7 +102,7 @@
         #bobSad{
           index:27;
         }
-         #markBlink{
+        #markBlink{
           index:28;
         }
         #markHappy{
@@ -128,6 +128,24 @@
         }
         #taylorSad{
           index:36;
+        }      
+        #jackBlink{
+          index:34;
+        }
+        #jackHappy{
+          index:35;
+        }
+        #jackSad{
+          index:36;
+        }
+        #nicoleBlink{
+          index:37;
+        }
+        #nicoleHappy{
+          index:38;
+        }
+        #nicoleSad{
+          index:39;
         }
        /* #jeannineBlink{
           index:16;
@@ -201,7 +219,7 @@ var myVideo;
       blinking: "#bobBlink",
       sad: "#bobSad",
       happy: "#bobHappy"
-    }
+    },
     {
       blinking: "#markBlink",
       sad: "#markSad",
@@ -216,6 +234,16 @@ var myVideo;
       blinking: "#taylorBlink",
       sad: "#taylorSad",
       happy: "#taylorHappy"
+    },
+    {
+      blinking: "#jackBlink",
+      sad: "#jackSad",
+      happy: "#jackHappy"
+    },
+    {
+      blinking: "#nicoleBlink",
+      sad: "#nicoleSad",
+      happy: "#nicoleHappy"
     }
     //  {
     //   blinking: "#jeannineBlink",
@@ -574,8 +602,46 @@ var myVideo;
       <video class="video" id="taylorHappy" width="1080" height="720">
         <source src="assets/taylorHappy.mp4" type="video/mp4">
       </video>
-      </div>  
+      </div> 
 
+<!-- Jack -->
+      <div>
+      <video id="jackBlink" width="1080" height="720" loop>
+        <source src="assets/jackBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="jackSad" width="1080" height="720">
+        <source src="assets/jackSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="jackHappy" width="1080" height="720">
+        <source src="assets/jackHappy.mp4" type="video/mp4">
+      </video>
+      </div> 
+
+    <!-- Nicole -->
+      <div>
+      <video id="nicoleBlink" width="1080" height="720" loop>
+        <source src="assets/nicoleBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="nicoleSad" width="1080" height="720">
+        <source src="assets/nicoleSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="nicoleHappy" width="1080" height="720">
+        <source src="assets/nicoleHappy.mp4" type="video/mp4">
+      </video>
+      </div>
+  
   </body> 
 
 </html>
