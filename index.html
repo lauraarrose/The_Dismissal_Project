@@ -106,7 +106,6 @@
       happy: "#jasonHappy"
     }
     ];
-    console.log(myVideo[0])
 
     var index = 0; 
     
@@ -117,6 +116,7 @@
     var dir;
     var controllerOptions = {enableGestures: true};
 
+
       Leap.loop(controllerOptions, function(frame) {
         // Display Gesture object data
         if (frame.gestures.length > 0) {
@@ -124,29 +124,36 @@
             var gesture = frame.gestures[i];
             console.log(gesture);
             if(gesture.type == "swipe") {
-              
+
+          
                 //Classify swipe as either horizontal or vertical
                 var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
                 //Classify as right-left or up-down
                 if(isHorizontal){
                   console.log(gesture);
-
+                 
                     if(gesture.direction[0] > 0 && gesture.state ==='stop'){
                         swipeDirection = "right";
                         dir = "right";
-                        $(myVideo[index].blinking).get(index).hide();
                         $(myVideo[index].blinking).get(index).pause();
+                         console.log(swipeDirection);
+                        $(myVideo[index].blinking).get(index).hide();
                         $(myVideo[index].happy).get(index).show();
                         $(myVideo[index].happy).get(index).play();
                         console.log(swipeDirection);
+
                     } else if(gesture.direction[0] < 0 && gesture.state ==='stop') {
                         swipeDirection = "left";
                         dir = "left";
-                        $(myVideo[index].blinking).get(index).hide();
+
+                          console.log("I am AMAZING");
+
                         $(myVideo[index].blinking).get(index).pause();
+                        $(myVideo[index].blinking).get(index).hide();
                         $(myVideo[index].sad).get(index).show();
                         $(myVideo[index].sad).get(index).play();
                         console.log(swipeDirection);
+
 
                     }
                       //$myVideo[index].happy.get(index).on('ended', function(
