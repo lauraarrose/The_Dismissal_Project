@@ -63,6 +63,15 @@
         #jasonSad{
           index:18;
         }
+        #zoeBlink{
+          index:16;
+        }
+        #zoeHappy{
+          index:17;
+        }
+        #zoeSad{
+          index:18;  
+        }
 
     </style>
     <meta charset="UTF-8">
@@ -104,6 +113,11 @@
       blinking: "#jasonBlink",
       sad: "#jasonSad",
       happy: "#jasonHappy"
+    },
+    {
+      blinking: "#zoeBlink",
+      sad: "#zoeSad",
+      happy: "#zoeHappy"
     }
     ];
 
@@ -181,8 +195,6 @@
                     // ){
                     //     $(myVideo[index].blinking).show();
                     // };
-
-
                     index++;
 
 //$(myVideo[index].blinking).get(index).play()
@@ -434,7 +446,26 @@
         </video>
       </div>
       
-       <!--  
+      <!-- Zoe -->
+        <div>
+        <video class="video" id="zoeBlink" width="1080" height="720" loop>
+          <source src="assets/zoeBlink.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <div>
+        <video class="video" id="zoeSad" width="1080" height="720">
+          <source src="assets/zoeSad.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div>
+        <video class="video" id="zoeHappy" width="1080" height="720">
+          <source src="assets/zoeHappy.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <!-- 
       <div>
       <video id="valerieBlink" width="1080" height="720" autoplay loop>
         <source src="assets/valtest2.mp4" type="video/mp4">
