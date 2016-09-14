@@ -102,6 +102,24 @@
         #bobSad{
           index:27;
         }
+         #markBlink{
+          index:28;
+        }
+        #markHappy{
+          index:29;
+        }
+        #markSad{
+          index:30;
+        }
+         #valerieBlink{
+          index:31;
+        }
+        #valerieHappy{
+          index:32;
+        }
+        #valerieSad{
+          index:33;
+        }
        /* #jeannineBlink{
           index:16;
         }
@@ -174,6 +192,16 @@ var myVideo;
       blinking: "#bobBlink",
       sad: "#bobSad",
       happy: "#bobHappy"
+    }
+    {
+      blinking: "#markBlink",
+      sad: "#markSad",
+      happy: "#markHappy"
+    },
+    {
+      blinking: "#valerieBlink",
+      sad: "#valerieSad",
+      happy: "#valerieHappy"
     }
     //  {
     //   blinking: "#jeannineBlink",
@@ -475,7 +503,44 @@ var myVideo;
         <source src="assets/bobHappy.mp4" type="video/mp4">
       </video>
       </div>
-     
-    </body>   
+
+  <!-- Mark -->
+      <div>
+      <video id="markBlink" width="1080" height="720" loop>
+        <source src="assets/markBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="markSad" width="1080" height="720">
+        <source src="assets/markSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="markHappy" width="1080" height="720">
+        <source src="assets/markHappy.mp4" type="video/mp4">
+      </video>
+      </div>
+    </body> 
+
+  <!-- Valerie -->
+      <div>
+      <video id="valerieBlink" width="1080" height="720" loop>
+        <source src="assets/valerieBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="valerieSad" width="1080" height="720">
+        <source src="assets/valerieSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="valerieHappy" width="1080" height="720">
+        <source src="assets/valerieHappy.mp4" type="video/mp4">
+      </video>
+      </div>  
 
 </html>
