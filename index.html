@@ -120,6 +120,15 @@
         #valerieSad{
           index:33;
         }
+        #taylorBlink{
+          index:34;
+        }
+        #taylorHappy{
+          index:35;
+        }
+        #taylorSad{
+          index:36;
+        }
        /* #jeannineBlink{
           index:16;
         }
@@ -202,6 +211,11 @@ var myVideo;
       blinking: "#valerieBlink",
       sad: "#valerieSad",
       happy: "#valerieHappy"
+    },
+    {
+      blinking: "#taylorBlink",
+      sad: "#taylorSad",
+      happy: "#taylorHappy"
     }
     //  {
     //   blinking: "#jeannineBlink",
@@ -522,7 +536,7 @@ var myVideo;
         <source src="assets/markHappy.mp4" type="video/mp4">
       </video>
       </div>
-    </body> 
+    
 
   <!-- Valerie -->
       <div>
@@ -542,5 +556,26 @@ var myVideo;
         <source src="assets/valerieHappy.mp4" type="video/mp4">
       </video>
       </div>  
+  
+ <!-- Taylor -->
+      <div>
+      <video id="taylorBlink" width="1080" height="720" loop>
+        <source src="assets/taylorBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="taylorSad" width="1080" height="720">
+        <source src="assets/taylorSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="taylorHappy" width="1080" height="720">
+        <source src="assets/taylorHappy.mp4" type="video/mp4">
+      </video>
+      </div>  
+
+  </body> 
 
 </html>
