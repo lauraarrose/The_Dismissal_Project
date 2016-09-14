@@ -75,6 +75,33 @@
         #zoeSad{
           index:18;  
         }
+        #taurinBlink{
+          index:19;
+        }
+        #taurinHappy{
+          index:20;
+        }
+        #taurinSad{
+          index:21;
+        }
+         #delaBlink{
+          index:22;
+        }
+        #delaHappy{
+          index:23;
+        }
+        #delaSad{
+          index:24;
+        }
+         #bobBlink{
+          index:25;
+        }
+        #bobHappy{
+          index:26;
+        }
+        #bobSad{
+          index:27;
+        }
        /* #jeannineBlink{
           index:16;
         }
@@ -132,6 +159,21 @@ var myVideo;
       blinking: "#zoeBlink",
       sad: "#zoeSad",
       happy: "#zoeHappy"
+    },
+    {
+      blinking: "#taurinBlink",
+      sad: "#taurinSad",
+      happy: "#taurinHappy"
+    },
+    {
+      blinking: "#delaBlink",
+      sad: "#delaSad",
+      happy: "#delaHappy"
+    },
+    {
+      blinking: "#bobBlink",
+      sad: "#bobSad",
+      happy: "#bobHappy"
     }
     //  {
     //   blinking: "#jeannineBlink",
@@ -203,40 +245,7 @@ var myVideo;
                     // index++;
 
                     }
-                      //$myVideo[index].happy.on('ended', function(
-                       // $(myVideo[index].blinking).play());
-                       // )}
-
-                    
-
-                    // if (
-                    //     $( myVideo[index].happy ).on('ended', function(nextVideo){
-                    //     $this = $(this);
-                    //       if( this.currentTime > ( this.duration - 1 ) ) {
-                    //         $this.fadeOut(200);
-                    //       }    
-                    //     })
-                    // ){
-                    //     $(myVideo[index].blinking).show();
-                    // } else if (
-                    //     $( myVideo[index].sad ).on('ended', function(event){
-                    //     $this = $(this);
-                    //       if( this.currentTime > ( this.duration - 1 ) ) {
-                    //         $this.fadeOut(200);
-                    //       }
-                    //     })
-                    // ){
-                    //     $(myVideo[index].blinking).show();
-                    // };
-                   
-
-//$(myVideo[index].blinking).play()
-
-//video needs to be playing and then must end/pause
-//none of the videos are playing/autoplaying now - so much tell them to play
-//then they have to end in order to continue the loop
-
-
+          
                 } 
             }
         }
@@ -390,7 +399,8 @@ var myVideo;
           <source src="assets/jeannineHappy.mp4" type="video/mp4">
         </video>
       </div> -->
-       
+  
+  <!-- Jason -->
       <div>
       <video id="jasonBlink" width="1080" height="720" loop>
         <source src="assets/jasonBlink.mp4" type="video/mp4">
@@ -408,7 +418,64 @@ var myVideo;
         <source src="assets/jasonHappy.mp4" type="video/mp4">
       </video>
       </div>
+ 
+ <!-- Taurin -->
+      <div>
+      <video id="taurinBlink" width="1080" height="720" loop>
+        <source src="assets/taurinBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="taurinSad" width="1080" height="720">
+        <source src="assets/taurinSad.mp4" type="video/mp4">
+      </video>
+      </div>
 
+      <div>
+      <video class="video" id="taurinHappy" width="1080" height="720">
+        <source src="assets/taurinHappy.mp4" type="video/mp4">
+      </video>
+      </div>
+
+     <!-- DelaLise -->
+      <div>
+      <video id="delaBlink" width="1080" height="720" loop>
+        <source src="assets/delaBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="delaSad" width="1080" height="720">
+        <source src="assets/delaSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="delaHappy" width="1080" height="720">
+        <source src="assets/delaHappy.mp4" type="video/mp4">
+      </video>
+      </div>
+     
+     <!-- Bob -->
+      <div>
+      <video id="bobBlink" width="1080" height="720" loop>
+        <source src="assets/bobBlink.mp4" type="video/mp4">
+      </video>
+      </div>
+      
+      <div>
+      <video class="video" id="bobSad" width="1080" height="720">
+        <source src="assets/bobSad.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div>
+      <video class="video" id="bobHappy" width="1080" height="720">
+        <source src="assets/bobHappy.mp4" type="video/mp4">
+      </video>
+      </div>
+     
     </body>   
 
 </html>
